@@ -34,18 +34,21 @@ html,
 body {
     height: 90vh;
     line-height: 2;
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: #252B42;
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
     background-color: grey;
 }
+h1 {
+    display: none;
+}
 .wrapper {
     display: grid;
-    width: 70vw;
+    width: 70%;
     height: 90vh;
     margin: 1% auto;
-    padding: 2%;
+    padding: 2.5%;
     background-color: lightblue;
     grid-template-areas: "slider slider"
                          "memText controls";
@@ -53,16 +56,93 @@ body {
     grid-template-columns: 80% 20%;
 
 }
-.slider {
+
+.overflow-slider {
     grid-area: slider;
-    display: flex;
-    width: 65vw;
-    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+}
+.slider {
+    width: 500%;
+}
+.slides {
+    display: inline-block;
+    width: 20%;
+    float: left;
+}
+.slides img {
+    width: 100%;
+}
+.overflow-text {
+    grid-area: memText;
+    width: 100%;
     overflow: hidden;
 }
 .text-container {
-    grid-area: memText;
+    width: 500%;
+}
+
+.text {
+    display: inline-block;
+    float: left;
+    width: 20%;
+}
+.controls {
+    grid-area: controls;
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    padding: 1%;
+    justify-content: space-between;
+    align-items: center;
+}
+input[type="radio"] {
+    display:none;
+}
+
+label {
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #252B42;
+    width: 10%;
+    height: 35%;
+}
+
+#slide1:checked ~ .wrapper .slider,
+#slide1:checked ~ .wrapper .text-container {
+	margin-left: 0;
+}
+#slide2:checked ~ .wrapper .slider,
+#slide2:checked ~ .wrapper .text-container {
+	margin-left: -100%;
+}
+#slide3:checked ~ .wrapper .slider,
+#slide3:checked ~ .wrapper .text-container {
+	margin-left: -200%;
+}
+#slide4:checked ~ .wrapper .slider,
+#slide4:checked ~ .wrapper .text-container {
+	margin-left: -300%;
+}
+label:hover { 
+	background-color: #377fae;
+	border-color: grey;
+}
+label:active {
+    background-color: #1402dc;
+	border-color: white;
+}
+label:checked {
+    background-color: darkgreen;
+	border-color: white;
+}
+
+.wrapper .slider { 
+	transition: all 700ms ease-out;
+}
+
+#slide1:checked ~ .wrapper label:nth-child(1),
+#slide2:checked ~ .wrapper label:nth-child(2),
+#slide3:checked ~ .wrapper label:nth-child(3),
+#slide4:checked ~ .wrapper label:nth-child(4) {
+	background-color: #18a3dd;
+	border-color: navy;
 }
