@@ -101,9 +101,19 @@ input[type="radio"] {
 label {
     cursor: pointer;
     border-radius: 50%;
+    background-color: transparent;
+    width: 20%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paginator {
+    background-color: black;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
     background-color: #252B42;
-    width: 10%;
-    height: 35%;
 }
 
 #slide1:checked ~ .wrapper .slider,
@@ -122,27 +132,22 @@ label {
 #slide4:checked ~ .wrapper .text-container {
 	margin-left: -300%;
 }
-label:hover { 
-	background-color: #377fae;
-	border-color: grey;
+label:hover .paginator { 
+	background-color: white;
+	border-color: #377fae;
+    opacity: 0.5;
 }
-label:active {
+label:active .paginator {
     background-color: #1402dc;
-	border-color: white;
-}
-label:checked {
-    background-color: darkgreen;
-	border-color: white;
 }
 
 .wrapper .slider { 
 	transition: all 700ms ease-out;
 }
 
-#slide1:checked ~ .wrapper label:nth-child(1),
-#slide2:checked ~ .wrapper label:nth-child(2),
-#slide3:checked ~ .wrapper label:nth-child(3),
-#slide4:checked ~ .wrapper label:nth-child(4) {
-	background-color: #18a3dd;
-	border-color: navy;
+#slide1:checked ~ .wrapper label:nth-child(1) .paginator,
+#slide2:checked ~ .wrapper label:nth-child(2) .paginator,
+#slide3:checked ~ .wrapper label:nth-child(3) .paginator,
+#slide4:checked ~ .wrapper label:nth-child(4) .paginator{
+	background-color: #00b0fb;
 }
